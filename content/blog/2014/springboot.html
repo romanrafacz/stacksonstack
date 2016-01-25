@@ -16,7 +16,7 @@ Also, select the necessary packages, in this case type Boot, Thymeleaf, JPA, & P
 
 <li><a href="http://start.spring.io/">http://start.spring.io/</a></li>
 
-<img src="../../images/spring_initializer.png" /> 
+<img th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '') th:src="@{${rootpath}+'images/bootstrap.min.css}" /> 
 
 <pre class="prettyprint">
 <code>

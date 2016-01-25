@@ -5,8 +5,8 @@
     <atom:link href="http://jbake.org/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Mon, 25 Jan 2016 10:37:28 -0600</pubDate>
-    <lastBuildDate>Mon, 25 Jan 2016 10:37:28 -0600</lastBuildDate>
+    <pubDate>Mon, 25 Jan 2016 15:28:15 -0600</pubDate>
+    <lastBuildDate>Mon, 25 Jan 2016 15:28:15 -0600</lastBuildDate>
 
     <item>
       <title>Postgres starter kit</title>
@@ -47,7 +47,7 @@ Also, select the necessary packages, in this case type Boot, Thymeleaf, JPA, &am
 
 &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;http://start.spring.io/&amp;quot;&amp;gt;http://start.spring.io/&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
 
-&amp;lt;img src=&amp;quot;../../images/spring_initializer.png&amp;quot; /&amp;gt; 
+&amp;lt;img th:with=&amp;quot;rootpath=(${content.rootpath != null} ? ${content.rootpath} : &amp;#39;&amp;#39;) th:src=&amp;quot;@{${rootpath}+&amp;#39;images/bootstrap.min.css}&amp;quot; /&amp;gt; 
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;

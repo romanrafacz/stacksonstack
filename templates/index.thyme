@@ -4,23 +4,52 @@
 	<head th:replace="header.thyme::head"/>
 	<body onload="prettyPrint()">
 	<div id="wrap">
+		
 		<div th:replace="menu.thyme::menu"/>
-		<div class="container">
-			<div class="page-header">
-				<h1>Recent Posts</h1>
-			</div>
-			
-			<div th:each="post : ${published_posts}">
-				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
-				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
-				<p th:utext='${post.body}'>body</p>
-			</div>
+		<div class="container" >
+			<div class="row">
 				
-			<hr />
+				<div class="page-header">
+				<h2>Roman's Weblog</h2>
+				</div>
 			
-			<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
-		</div>
-	</div>
+				
+				<div class="col-md-9">
+			
+				<div th:each="post : ${published_posts}">
+					<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
+					<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
+					<p th:utext='${post.body}'>body</p>
+				</div>
+				
+				<hr />
+			
+				<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
+			
+				
+			</div>
+			
+			
+			
+
+			<div class="col-md-3 sidebar">
+				<div class="row sidebar-block">
+				<p>
+				<img class="img-responsive center-block" title="Roman Rafacz" alt="Roman Rafacz" src="" />
+				</p>
+				<p>Roman is a System Administrator living in Chicago, blah blah bla, adjust</p>
+				</div>
+				<div class="row sidebar-block">
+				<h3>Recent posts</h3>
+				</div>
+			</div>
+
+		</div> <!-- Row div -->
+			
+		</div> <!-- container div -->
+		
+	</div><!-- wrap div -->
+
 	
 	<div th:replace="footer.thyme::footer"></div>
     </body>

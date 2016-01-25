@@ -32,6 +32,7 @@
 	</head>
 	<body onload="prettyPrint()">
 	<div id="wrap">
+		
 		<div>
 	
 	  <!-- Fixed navbar -->
@@ -56,35 +57,30 @@
             <li><a shape="rect" href="about.html">About</a></li>
            <!-- <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.feed_file}">Subscribe</a></li> -->
           
-            <!-- 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-            -->
+            
           </ul>
+            <a shape="rect" href="https://github.com/romedawg/stacksonstack">
+			<img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1001;" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" />
+			</a>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
 	</div>
 		<div class="container">
-			<div class="page-header">
-				<h1>Recent Posts</h1>
-			</div>
+			<div class="row">
+				
+				<div class="page-header">
+				<h1>Roman's Weblog</h1>
+				</div>
 			
-			<div>
-				<a href="blog/2014/postgres_start.html" shape="rect"><h1>Postgres starter kit</h1></a>
-				<p>26 September 2015</p>
-				<p>
+				
+				<div class="col-md-9">
+			
+				<div>
+					<a href="blog/2014/postgres_start.html" shape="rect"><h1>Postgres starter kit</h1></a>
+					<p>26 September 2015</p>
+					<p>
 
 <p>Getting postgres up and running.</p>
 
@@ -99,12 +95,12 @@ id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis
 consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
 </p>
-			</div>
+				</div>
 			
-			<div>
-				<a href="blog/2014/springboot.html" shape="rect"><h1>Springboot</h1></a>
-				<p>02 June 2015</p>
-				<p>
+				<div>
+					<a href="blog/2014/springboot.html" shape="rect"><h1>Springboot</h1></a>
+					<p>02 June 2015</p>
+					<p>
 <p>Springboot awaken</p>
 
 
@@ -116,7 +112,7 @@ Also, select the necessary packages, in this case type Boot, Thymeleaf, JPA, & P
 
 <li><a href="http://start.spring.io/">http://start.spring.io/</a></li>
 
-<img src="../../images/spring_initializer.png" /> 
+<img th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '') th:src="@{${rootpath}+'images/bootstrap.min.css}" /> 
 
 <pre class="prettyprint">
 <code>
@@ -133,12 +129,12 @@ public class Oven {
 <p>In consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.</p>
 </p>
-			</div>
+				</div>
 			
-			<div>
-				<a href="blog/2014/backup_pg_server.html" shape="rect"><h1>Postgres Backup &amp;amp; Recovery</h1></a>
-				<p>17 October 2013</p>
-				<p><div class="paragraph">
+				<div>
+					<a href="blog/2014/backup_pg_server.html" shape="rect"><h1>Postgres Backup &amp;amp; Recovery</h1></a>
+					<p>17 October 2013</p>
+					<p><div class="paragraph">
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel diam purus. Curabitur ut nisi lacus.</p>
 </div>
 <div class="ulist">
@@ -160,12 +156,12 @@ id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis
 consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.</p>
 </div></p>
-			</div>
+				</div>
 			
-			<div>
-				<a href="blog/2014/python.html" shape="rect"><h1>Top python libraries</h1></a>
-				<p>25 August 2013</p>
-				<p>
+				<div>
+					<a href="blog/2014/python.html" shape="rect"><h1>Top python libraries</h1></a>
+					<p>25 August 2013</p>
+					<p>
 My top 10 python libraries
 
 * [http://example.org](http://example.org)
@@ -179,20 +175,43 @@ id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis
 consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
 </p>
-			</div>
+				</div>
 				
-			<hr />
+				<hr />
 			
-			<p>Older posts are available in the <a href="archive.html" shape="rect">archive</a>.</p>
-		</div>
-	</div>
+				<p>Older posts are available in the <a href="archive.html" shape="rect">archive</a>.</p>
+			
+				
+			</div>
+			
+			
+			
+
+			<div class="col-md-3 sidebar">
+				<div class="row sidebar-block">
+				<p>
+				<img class="img-responsive center-block" title="Roman Rafacz" alt="Roman Rafacz" src="" />
+				</p>
+				<p>Roman is a System Administrator living in Chicago, blah blah bla, adjust</p>
+				</div>
+				<div class="row sidebar-block">
+				<h3>Recent posts</h3>
+				</div>
+			</div>
+
+		</div> <!-- Row div -->
+			
+		</div> <!-- container div -->
+		
+	</div><!-- wrap div -->
+
 	
 	<div>
 			<div id="push"></div>
     
 		    <div id="footer">
 		      <div class="container">
-		        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/" shape="rect">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org" shape="rect">JBake <span>v2.4.0</span></a></p>
+		    
 		      </div>
 		    </div>
 	    
@@ -202,7 +221,7 @@ libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
 		    <script xml:space="preserve" src="js/jquery-1.11.1.min.js"></script>
 		    <script xml:space="preserve" src="js/bootstrap.min.js"></script>
 		    <script xml:space="preserve" src="js/prettify.js"></script>
-    
+    		
     	</div>
     </body>
 </html>
