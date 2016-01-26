@@ -5,8 +5,58 @@
     <atom:link href="http://jbake.org/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Mon, 25 Jan 2016 15:28:15 -0600</pubDate>
-    <lastBuildDate>Mon, 25 Jan 2016 15:28:15 -0600</lastBuildDate>
+    <pubDate>Mon, 25 Jan 2016 21:25:08 -0600</pubDate>
+    <lastBuildDate>Mon, 25 Jan 2016 21:25:08 -0600</lastBuildDate>
+
+    <item>
+      <title>Pluginto Vim</title>
+      <link>http://jbake.org/blog/2016/vim_plugins.html</link>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2016/vim_plugins.html</guid>
+      <description>
+&amp;lt;p&amp;gt;Awesome Vim plugins that will make your life easier&amp;lt;/p&amp;gt;
+
+
+&amp;lt;p&amp;gt;
+With so many tools out there it&amp;#39;s hard to keep track of all of them, here are a few that you should keep up your sleeve
+&amp;lt;/p&amp;gt;
+
+&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https://github.com/tpope/vim-pathogen&amp;quot;&amp;gt;vim-pathogen&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+&amp;lt;p&amp;gt;
+Most of these are provided by tpope via github who is a unicorn.  Pathogen makes installing plugins a breeze.  Once you add pathogen into your your vimrc, you&amp;#39;re able to quickly add other plugins into your enviroment by dropping them in the the bundle folder in .vim.
+&amp;lt;/p&amp;gt;
+
+&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https://github.com/tpope/vim-sensible.git&amp;quot;&amp;gt;vim-sensible&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+&amp;lt;p&amp;gt;
+Vim-Sensible is a good starting point to your .vimrc, especially if you&amp;#39;re new to vim.  Ultimately you&amp;#39;ll want to roll your own so you know exactly what you&amp;#39;ll get but if you ain&amp;#39;t got no time for that, start here.
+&amp;lt;/p&amp;gt;
+
+
+&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https://github.com/christoomey/vim-tmux-navigator.git&amp;quot;&amp;gt;vim-tmux-navigator&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+&amp;lt;p&amp;gt;
+Perfect tool for jumping between multiple windows in vim.
+&amp;lt;/p&amp;gt;
+
+&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;https://github.com/cwoac/nvim.git&amp;quot;&amp;gt;https://github.com/cwoac/nvim.git&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+
+&amp;lt;p&amp;gt;nvim&amp;lt;/p&amp;gt;
+</description>	  
+    </item>
+
+    <item>
+      <title>Top python libraries</title>
+      <link>http://jbake.org/blog/2014/python.html</link>
+      <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2014/python.html</guid>
+      <description>
+My top 10 python libraries
+
+Some usefull libraried that have been helpfull
+</description>	  
+    </item>
 
     <item>
       <title>Postgres starter kit</title>
@@ -33,36 +83,119 @@ libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
     <item>
       <title>Springboot</title>
       <link>http://jbake.org/blog/2014/springboot.html</link>
-      <pubDate>Tue, 2 Jun 2015 00:00:00 -0500</pubDate>
+      <pubDate>Sun, 2 Aug 2015 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2014/springboot.html</guid>
-      <description>
-&amp;lt;p&amp;gt;Springboot awaken&amp;lt;/p&amp;gt;
+      <description>&amp;lt;p&amp;gt;Springboot is a great tool if you&amp;#39;re looking to delelop quickly and efficiently.  It does all the heavy lifting of wiring all your beans and configuration together so you can just focus on coding&amp;lt;/p&amp;gt;
 
-
-&amp;lt;p&amp;gt;Setup a basic project with springboot. We&amp;#39;ll work in eclipse and maven build.  
-The easiest way is the head over to to the url below.  This site will allow us to 
+&amp;lt;p&amp;gt;Setup a basic project with springboot. We&amp;#39;ll work in eclipse and a maven build.  
+The easiest way is the head over to &amp;lt;a href=&amp;quot;http://start.spring.io/&amp;quot;&amp;gt;http://start.spring.io&amp;lt;/a&amp;gt; .  Spring initializer will allow us to 
 create a basic project that we can import into eclipse.  
 Make sure to select the latest java version along with the build type, for this example we&amp;#39;ll use Maven.  
-Also, select the necessary packages, in this case type Boot, Thymeleaf, JPA, &amp;amp; Postgres&amp;lt;/p&amp;gt;
+Also, select the necessary packages, in this case add the following dependencies Web , Thymeleaf, JPA, &amp;amp; Postgres&amp;lt;/p&amp;gt;
 
-&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;http://start.spring.io/&amp;quot;&amp;gt;http://start.spring.io/&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;!-- &amp;lt;img th:with=&amp;quot;rootpath=(${content.rootpath != null} ? ${content.rootpath} : &amp;#39;&amp;#39;)&amp;quot; th:src=&amp;quot;@{${rootpath}+&amp;#39;images/spring_initializer_img.png}&amp;quot; /&amp;gt; --&amp;gt;
+&amp;lt;img =&amp;quot;/images/spring_initializer_img.png&amp;quot; /&amp;gt;
 
-&amp;lt;img th:with=&amp;quot;rootpath=(${content.rootpath != null} ? ${content.rootpath} : &amp;#39;&amp;#39;) th:src=&amp;quot;@{${rootpath}+&amp;#39;images/bootstrap.min.css}&amp;quot; /&amp;gt; 
+&amp;lt;p&amp;gt;Once you download, add the folder into your IDE.  You will notice a basic file structure.  We&amp;#39;re going to add a few things to get this site up and 
+running.  A controller to handle the incoming requests.  A domain object for our entity(think table).  A domain access object and then of course our views.  This is where Thymeleaf comes in, I like it as a templating enigne. Lastly, we need to modify our application.properties, which is how the persistance layer gets applied.
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Here is our Application context, you wont need to modify this.  Later, you can add other object such as a Servlet object.&amp;lt;/p&amp;gt;
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-package org.jbake;
+package com.heroes;
 
-public class Oven {
-	public static void main(String[] args) {
-		System.out.print(&amp;quot;Baking!&amp;quot;);
-  }
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SuperheroesApplication {
+
+  public static void main(String[] args) {
+      SpringApplication.run(SuperheroesApplication.class, args);
+	}
 }
 &amp;lt;/code&amp;gt;
 &amp;lt;/pre&amp;gt;
 
-&amp;lt;p&amp;gt;In consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
-libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Note @SpringBootApplication, this combines 3 annotations you would use in Spring MVC - @Configuration, @ComponentScan, @EnableSpring - confirm this&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Now lets configure the Controller&amp;lt;/p&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+
+package com.heroes.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+
+  @RequestMapping(&amp;quot;/&amp;quot;)
+    public String home(){
+	return &amp;quot;home&amp;quot;;
+	  }
+}
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;This will be our landing page, let&amp;#39;s create another controller that will diplay all our data
+&amp;lt;/p&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+package com.heroes.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&amp;quot;user&amp;quot;)
+public class User {
+  
+    @Id
+      @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name=&amp;quot;id&amp;quot;)
+	  private Integer id;
+	    
+	      @Column(name=&amp;quot;username&amp;quot;)
+		private String username;
+		  
+		    @Column(name=&amp;quot;email&amp;quot;)
+		      private String email;
+			
+			  @Column(name=&amp;quot;password&amp;quot;)
+			    private String password;
+			      
+				//Getters and Setters here
+
+				}
+				
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://192.168.100.1:5432/spring
+spring.datasource.username=roman
+spring.datasource.password=snickers
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+
 </description>	  
     </item>
 
@@ -93,27 +226,6 @@ id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis
 consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.&amp;lt;/p&amp;gt;
 &amp;lt;/div&amp;gt;</description>	  
-    </item>
-
-    <item>
-      <title>Top python libraries</title>
-      <link>http://jbake.org/blog/2014/python.html</link>
-      <pubDate>Sun, 25 Aug 2013 00:00:00 -0500</pubDate>
-      <guid isPermaLink="false">blog/2014/python.html</guid>
-      <description>
-My top 10 python libraries
-
-* [http://example.org](http://example.org)
-* [Example.org](http://example.org)
-
-Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu, 
-mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo 
-ligula. Vestibulum tristique odio ut risus ultricies a hendrerit quam iaculis. Duis tempor elit sit amet 
-ligula vehicula et iaculis sem placerat. Fusce dictum, metus at volutpat lacinia, elit massa auctor risus, 
-id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis sapien sodales. In 
-consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
-libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
-</description>	  
     </item>
 
   </channel> 

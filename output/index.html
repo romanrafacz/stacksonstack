@@ -45,15 +45,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" shape="rect" href="">Stacks</a>
+          <a class="navbar-brand" shape="rect" href="index.html">Stacks</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
            <!-- <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'index.html'">Home</a></li> -->
-            <li><a shape="rect" href="java.html">Java</a></li>
-            <li><a shape="rect" href="index.html">Python</a></li>
+            <li><a shape="rect" href="tags/java.html">Java</a></li>
+            <li><a shape="rect" href="tags/python.html">Python</a></li>
             <li><a shape="rect" href="index.html">Saltstack</a></li>
-            <li><a shape="rect" href="index.html">Postgresql</a></li>
+            <li><a shape="rect" href="tags/postgres.html">Postgresql</a></li>
             <li><a shape="rect" href="about.html">About</a></li>
            <!-- <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.feed_file}">Subscribe</a></li> -->
           
@@ -71,11 +71,57 @@
 			<div class="row">
 				
 				<div class="page-header">
-				<h1>Roman's Weblog</h1>
+				<h2>Roman's Weblog</h2>
 				</div>
 			
 				
 				<div class="col-md-9">
+			
+				<div>
+					<a href="blog/2016/vim_plugins.html" shape="rect"><h1>Pluginto Vim</h1></a>
+					<p>12 January 2016</p>
+					<p>
+<p>Awesome Vim plugins that will make your life easier</p>
+
+
+<p>
+With so many tools out there it's hard to keep track of all of them, here are a few that you should keep up your sleeve
+</p>
+
+<li><a href="https://github.com/tpope/vim-pathogen">vim-pathogen</a></li>
+
+<p>
+Most of these are provided by tpope via github who is a unicorn.  Pathogen makes installing plugins a breeze.  Once you add pathogen into your your vimrc, you're able to quickly add other plugins into your enviroment by dropping them in the the bundle folder in .vim.
+</p>
+
+<li><a href="https://github.com/tpope/vim-sensible.git">vim-sensible</a></li>
+
+<p>
+Vim-Sensible is a good starting point to your .vimrc, especially if you're new to vim.  Ultimately you'll want to roll your own so you know exactly what you'll get but if you ain't got no time for that, start here.
+</p>
+
+
+<li><a href="https://github.com/christoomey/vim-tmux-navigator.git">vim-tmux-navigator</a></li>
+
+<p>
+Perfect tool for jumping between multiple windows in vim.
+</p>
+
+<li><a href="https://github.com/cwoac/nvim.git">https://github.com/cwoac/nvim.git</a></li>
+
+<p>nvim</p>
+</p>
+				</div>
+			
+				<div>
+					<a href="blog/2014/python.html" shape="rect"><h1>Top python libraries</h1></a>
+					<p>25 October 2015</p>
+					<p>
+My top 10 python libraries
+
+Some usefull libraried that have been helpfull
+</p>
+				</div>
 			
 				<div>
 					<a href="blog/2014/postgres_start.html" shape="rect"><h1>Postgres starter kit</h1></a>
@@ -99,35 +145,118 @@ libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
 			
 				<div>
 					<a href="blog/2014/springboot.html" shape="rect"><h1>Springboot</h1></a>
-					<p>02 June 2015</p>
-					<p>
-<p>Springboot awaken</p>
+					<p>02 August 2015</p>
+					<p><p>Springboot is a great tool if you're looking to delelop quickly and efficiently.  It does all the heavy lifting of wiring all your beans and configuration together so you can just focus on coding</p>
 
-
-<p>Setup a basic project with springboot. We'll work in eclipse and maven build.  
-The easiest way is the head over to to the url below.  This site will allow us to 
+<p>Setup a basic project with springboot. We'll work in eclipse and a maven build.  
+The easiest way is the head over to <a href="http://start.spring.io/">http://start.spring.io</a> .  Spring initializer will allow us to 
 create a basic project that we can import into eclipse.  
 Make sure to select the latest java version along with the build type, for this example we'll use Maven.  
-Also, select the necessary packages, in this case type Boot, Thymeleaf, JPA, & Postgres</p>
+Also, select the necessary packages, in this case add the following dependencies Web , Thymeleaf, JPA, & Postgres</p>
 
-<li><a href="http://start.spring.io/">http://start.spring.io/</a></li>
+<!-- <img th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="@{${rootpath}+'images/spring_initializer_img.png}" /> -->
+<img ="/images/spring_initializer_img.png" />
 
-<img th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '') th:src="@{${rootpath}+'images/bootstrap.min.css}" /> 
+<p>Once you download, add the folder into your IDE.  You will notice a basic file structure.  We're going to add a few things to get this site up and 
+running.  A controller to handle the incoming requests.  A domain object for our entity(think table).  A domain access object and then of course our views.  This is where Thymeleaf comes in, I like it as a templating enigne. Lastly, we need to modify our application.properties, which is how the persistance layer gets applied.
+</p>
+
+<p>Here is our Application context, you wont need to modify this.  Later, you can add other object such as a Servlet object.</p>
 
 <pre class="prettyprint">
 <code>
-package org.jbake;
+package com.heroes;
 
-public class Oven {
-	public static void main(String[] args) {
-		System.out.print("Baking!");
-  }
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SuperheroesApplication {
+
+  public static void main(String[] args) {
+      SpringApplication.run(SuperheroesApplication.class, args);
+	}
 }
 </code>
 </pre>
 
-<p>In consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
-libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.</p>
+<p>Note @SpringBootApplication, this combines 3 annotations you would use in Spring MVC - @Configuration, @ComponentScan, @EnableSpring - confirm this</p>
+
+<p>Now lets configure the Controller</p>
+
+<pre class="prettyprint">
+<code>
+
+package com.heroes.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+
+  @RequestMapping("/")
+    public String home(){
+	return "home";
+	  }
+}
+</code>
+</pre>
+
+<p>This will be our landing page, let's create another controller that will diplay all our data
+</p>
+
+<pre class="prettyprint">
+<code>
+</code>
+</pre>
+
+<pre class="prettyprint">
+<code>
+package com.heroes.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
+public class User {
+  
+    @Id
+      @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	  private Integer id;
+	    
+	      @Column(name="username")
+		private String username;
+		  
+		    @Column(name="email")
+		      private String email;
+			
+			  @Column(name="password")
+			    private String password;
+			      
+				//Getters and Setters here
+
+				}
+				
+</code>
+</pre>
+
+<pre class="prettyprint">
+<code>
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://192.168.100.1:5432/spring
+spring.datasource.username=roman
+spring.datasource.password=snickers
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+</code>
+</pre>
+
 </p>
 				</div>
 			
@@ -156,25 +285,6 @@ id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis
 consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere
 libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.</p>
 </div></p>
-				</div>
-			
-				<div>
-					<a href="blog/2014/python.html" shape="rect"><h1>Top python libraries</h1></a>
-					<p>25 August 2013</p>
-					<p>
-My top 10 python libraries
-
-* [http://example.org](http://example.org)
-* [Example.org](http://example.org)
-
-Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu, 
-mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo 
-ligula. Vestibulum tristique odio ut risus ultricies a hendrerit quam iaculis. Duis tempor elit sit amet 
-ligula vehicula et iaculis sem placerat. Fusce dictum, metus at volutpat lacinia, elit massa auctor risus, 
-id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis sapien sodales. In 
-consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere 
-libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
-</p>
 				</div>
 				
 				<hr />

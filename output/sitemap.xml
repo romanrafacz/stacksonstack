@@ -4,19 +4,23 @@
         <lastmod>2014-09-24</lastmod>
     </url>
     <url>
+        <loc>http://jbake.org/blog/2016/vim_plugins.html</loc>
+        <lastmod>2016-01-12</lastmod>
+    </url>
+    <url>
+        <loc>http://jbake.org/blog/2014/python.html</loc>
+        <lastmod>2015-10-25</lastmod>
+    </url>
+    <url>
         <loc>http://jbake.org/blog/2014/postgres_start.html</loc>
         <lastmod>2015-09-26</lastmod>
     </url>
     <url>
         <loc>http://jbake.org/blog/2014/springboot.html</loc>
-        <lastmod>2015-06-02</lastmod>
+        <lastmod>2015-08-02</lastmod>
     </url>
     <url>
         <loc>http://jbake.org/blog/2014/backup_pg_server.html</loc>
         <lastmod>2013-10-17</lastmod>
-    </url>
-    <url>
-        <loc>http://jbake.org/blog/2014/python.html</loc>
-        <lastmod>2013-08-25</lastmod>
     </url>
 </urlset>
