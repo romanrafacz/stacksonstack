@@ -51,7 +51,7 @@
            <!-- <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'index.html'">Home</a></li> -->
             <li><a shape="rect" href="../../tags/java.html">Java</a></li>
             <li><a shape="rect" href="../../tags/python.html">Python</a></li>
-            <li><a shape="rect" href="../..//tags/devops.html">DevOps</a></li>
+            <li><a shape="rect" href="../../tags/devops.html">DevOps</a></li>
             <li><a shape="rect" href="../../tags/postgres.html">Postgres</a></li>
             <li><a shape="rect" href="../../about.html">About</a></li>
            <!-- <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.feed_file}">Subscribe</a></li> -->
@@ -103,7 +103,37 @@ I will be using CentOS for this writeup.  I am also using two vagrant machines t
 <p>Once salt-maste is install, we'll just quick setup some quick configurations.</br>
 	<li>Change the hostname to saltmaster</li>
 	<li>Navigate to /etc/salt/master</li>
+	<li>Create salt & pillar directory in /srv - <i>sudo mkdir -p /srv/{salt,pillar}</i></li>
 </p>
+<p>You dont have to change anything in the master configuration file unless you want to change the default location for your states.  Which I typically do 
+	You can find a complete breakdown: <a href="https://docs.saltstack.com/en/latest/ref/configuration/master.html"><i>Here</i></a>
+</p>
+
+<pre class="prettyprint">
+<code>
+file_roots
+  base:
+    - /srv/salt/
+    - /srv/salt/pillars
+  dev:
+    - /srv/salt/dev/services
+    - /srv/salt/dev/states
+  prod:
+    - /srv/salt/prod/services
+    - /srv/salt/prod/states
+</code>
+</pre>
+<p>I should mention that saltstack to uses yaml searializtion for it's configuration, make sure to stick to this format</p>
+
+<p>
+	<h2>Modify the Salt Minion</h2>
+	<p>Let's modify the salt minion and connect it to the salt master.</br>
+		<li>Rename the minions hostname</li>
+		<li>Install saltstack</li>
+		<li>Edit /etc/salt/minion</li>
+	</p>
+</p>
+
 
 
 

@@ -57,8 +57,21 @@ file_roots
 
 <p>
 	<h2>Modify the Salt Minion</h2>
-	<p>Let's modify the salt minion and connect it to the salt master</p>
-</p>
+	<p>Let's modify the salt minion and connect it to the salt master.</br>
+		<li>Rename the minions hostname(we'll use salt_minion)</li>
+		<li>Install saltstack</li>
+		<li>Edit /etc/salt/minion</li>
+	</p>
+	<pre class="prettyprint">
+		<code>sudo yum install salt-minion -y</code>
+	</pre>
+	
+<li>Edit /etc/salt/minion</li>
+<pre class="prettyprint">
+<code>master: saltmaster or ip_address_of_master</code>
+</pre>
+<p>You could just put the ip_address_of_master or the hostname and edit the /etc/hosts file and hardcode the hostanme to the ipaddress.</p>
+
 
 
 

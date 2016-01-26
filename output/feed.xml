@@ -5,8 +5,8 @@
     <atom:link href="http://jbake.org/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 26 Jan 2016 14:42:50 -0600</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 14:42:50 -0600</lastBuildDate>
+    <pubDate>Tue, 26 Jan 2016 15:30:06 -0600</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 15:30:06 -0600</lastBuildDate>
 
     <item>
       <title>Pluginto Vim</title>
@@ -100,7 +100,7 @@ Make sure to select the latest java version along with the build type, for this 
 Also, select the necessary packages, in this case add the following dependencies Web , Thymeleaf, JPA, &amp;amp; Postgres&amp;lt;/p&amp;gt;
 
 &amp;lt;!-- &amp;lt;img th:with=&amp;quot;rootpath=(${content.rootpath != null} ? ${content.rootpath} : &amp;#39;&amp;#39;)&amp;quot; th:src=&amp;quot;@{${rootpath}+&amp;#39;images/spring_initializer_img.png}&amp;quot; /&amp;gt; --&amp;gt;
-&amp;lt;img =&amp;quot;/images/spring_initializer_img.png&amp;quot; /&amp;gt;
+&amp;lt;img =&amp;quot;images/spring_initializer_img.png&amp;quot; /&amp;gt;
 
 &amp;lt;p&amp;gt;Once you download, add the folder into your IDE.  You will notice a basic file structure.  We&amp;#39;re going to add a few things to get this site up and 
 running.  A controller to handle the incoming requests.  A domain object for our entity(think table).  A domain access object and then of course our views.  This is where Thymeleaf comes in, I like it as a templating enigne. Lastly, we need to modify our application.properties, which is how the persistance layer gets applied.
@@ -110,16 +110,16 @@ running.  A controller to handle the incoming requests.  A domain object for our
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-package com.heroes;
+package com.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SuperheroesApplication {
+public class SuperusersApplication {
 
   public static void main(String[] args) {
-      SpringApplication.run(SuperheroesApplication.class, args);
+      SpringApplication.run(SuperusersApplication.class, args);
 	}
 }
 &amp;lt;/code&amp;gt;
@@ -132,7 +132,7 @@ public class SuperheroesApplication {
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
 
-package com.heroes.controller;
+package com.users.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -154,14 +154,14 @@ This will route to our landing page, let&amp;#39;s create another controller tha
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-package com.heroes.controller;
+package com.users.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.ModelAndView;
 
-import com.heroes.repository.UserRepository;
+import com.users.repository.UserRepository;
 
 @Controller
 public class UserController {
@@ -177,9 +177,13 @@ public class UserController {
 &amp;lt;/code&amp;gt;
 &amp;lt;/pre&amp;gt;
 
+&amp;lt;p&amp;gt;Create a &amp;lt;i&amp;gt;User.java&amp;lt;/i&amp;gt; class in package called com.users.domain.  Once we have our domain model, we will need to add a service object that will fetch our data.  Loose coupling and modularity is the goal here.
+	
+&amp;lt;/p&amp;gt;
+
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-package com.heroes.domain;
+package com.users.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -212,19 +216,17 @@ public class User {
 &amp;lt;/code&amp;gt;
 &amp;lt;/pre&amp;gt;
 
-&amp;lt;p&amp;gt;Once we have our domain model, we will need to add a service object that will fetch our data.  Loose coupling and modularity is the goal here.
-Create a class &amp;lt;b&amp;gt;UserRepository.java&amp;lt;/b&amp;gt; in the com.heroes.repository package.
-&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;With our domain model in place, we need to create a repository object that will fetch all the datat for us.  Create a class &amp;lt;b&amp;gt;UserRepository.java&amp;lt;/b&amp;gt; in the com.users.repository package.&amp;lt;/p&amp;gt;
 
-&amp;lt;pre class=&amp;quot;prettypring&amp;quot;&amp;gt;
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-	package com.heroes.repository;
+package com.users.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.heroes.domain.User;
+import com.users.domain.User;
 
-public interface UserRepository extends JpaRepository&amp;lt;User, Long&amp;gt; {
+public interface UserRepository extends JpaRepository&amp;amp;lt;User, Long&amp;amp;gt; {
 
 }
 
@@ -264,8 +266,8 @@ This is what I have added to my maven pom.xml file.
 &amp;lt;/p&amp;gt;
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
 &amp;lt;code&amp;gt;
-			&amp;lt;groupId&amp;gt;org.webjars&amp;lt;/groupId&amp;gt;
-			&amp;lt;artifactId&amp;gt;bootstrap&amp;lt;/artifactId&amp;gt;
+			&amp;amp;lt;groupId&amp;amp;gt;org.webjars&amp;amp;lt;/groupId&amp;amp;gt;
+			&amp;amp;lt;artifactId&amp;amp;gt;bootstrap&amp;amp;lt;/artifactId&amp;amp;gt;
 			&amp;lt;version&amp;gt;3.3.1&amp;lt;/version&amp;gt;
 		&amp;lt;/dependency&amp;gt;
 		&amp;lt;dependency&amp;gt;
@@ -317,7 +319,37 @@ I will be using CentOS for this writeup.  I am also using two vagrant machines t
 &amp;lt;p&amp;gt;Once salt-maste is install, we&amp;#39;ll just quick setup some quick configurations.&amp;lt;/br&amp;gt;
 	&amp;lt;li&amp;gt;Change the hostname to saltmaster&amp;lt;/li&amp;gt;
 	&amp;lt;li&amp;gt;Navigate to /etc/salt/master&amp;lt;/li&amp;gt;
+	&amp;lt;li&amp;gt;Create salt &amp;amp; pillar directory in /srv - &amp;lt;i&amp;gt;sudo mkdir -p /srv/{salt,pillar}&amp;lt;/i&amp;gt;&amp;lt;/li&amp;gt;
 &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You dont have to change anything in the master configuration file unless you want to change the default location for your states.  Which I typically do 
+	You can find a complete breakdown: &amp;lt;a href=&amp;quot;https://docs.saltstack.com/en/latest/ref/configuration/master.html&amp;quot;&amp;gt;&amp;lt;i&amp;gt;Here&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;
+&amp;lt;/p&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+file_roots
+  base:
+    - /srv/salt/
+    - /srv/salt/pillars
+  dev:
+    - /srv/salt/dev/services
+    - /srv/salt/dev/states
+  prod:
+    - /srv/salt/prod/services
+    - /srv/salt/prod/states
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+&amp;lt;p&amp;gt;I should mention that saltstack to uses yaml searializtion for it&amp;#39;s configuration, make sure to stick to this format&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;
+	&amp;lt;h2&amp;gt;Modify the Salt Minion&amp;lt;/h2&amp;gt;
+	&amp;lt;p&amp;gt;Let&amp;#39;s modify the salt minion and connect it to the salt master.&amp;lt;/br&amp;gt;
+		&amp;lt;li&amp;gt;Rename the minions hostname&amp;lt;/li&amp;gt;
+		&amp;lt;li&amp;gt;Install saltstack&amp;lt;/li&amp;gt;
+		&amp;lt;li&amp;gt;Edit /etc/salt/minion&amp;lt;/li&amp;gt;
+	&amp;lt;/p&amp;gt;
+&amp;lt;/p&amp;gt;
+
 
 
 
