@@ -5,8 +5,8 @@
     <atom:link href="http://jbake.org/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 26 Jan 2016 15:30:06 -0600</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 15:30:06 -0600</lastBuildDate>
+    <pubDate>Wed, 27 Jan 2016 08:20:24 -0600</pubDate>
+    <lastBuildDate>Wed, 27 Jan 2016 08:20:24 -0600</lastBuildDate>
 
     <item>
       <title>Pluginto Vim</title>
@@ -53,7 +53,7 @@ Netfiler
     </item>
 
     <item>
-      <title>Top python libraries</title>
+      <title>Awesome Python Libraries</title>
       <link>http://jbake.org/blog/2014/python.html</link>
       <pubDate>Sun, 25 Oct 2015 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2014/python.html</guid>
@@ -61,6 +61,15 @@ Netfiler
 My top 10 python libraries
 
 Some usefull libraried that have been helpfull
+
+falcon
+
+ipython
+
+requets
+
+wget
+
 </description>	  
     </item>
 
@@ -268,25 +277,25 @@ This is what I have added to my maven pom.xml file.
 &amp;lt;code&amp;gt;
 			&amp;amp;lt;groupId&amp;amp;gt;org.webjars&amp;amp;lt;/groupId&amp;amp;gt;
 			&amp;amp;lt;artifactId&amp;amp;gt;bootstrap&amp;amp;lt;/artifactId&amp;amp;gt;
-			&amp;lt;version&amp;gt;3.3.1&amp;lt;/version&amp;gt;
-		&amp;lt;/dependency&amp;gt;
-		&amp;lt;dependency&amp;gt;
-			&amp;lt;groupId&amp;gt;org.webjars&amp;lt;/groupId&amp;gt;
-			&amp;lt;artifactId&amp;gt;angularjs&amp;lt;/artifactId&amp;gt;
-			&amp;lt;version&amp;gt;1.3.8&amp;lt;/version&amp;gt;
-		&amp;lt;/dependency&amp;gt;
-		&amp;lt;dependency&amp;gt;
-			&amp;lt;groupId&amp;gt;org.webjars&amp;lt;/groupId&amp;gt;
-			&amp;lt;artifactId&amp;gt;jquery&amp;lt;/artifactId&amp;gt;
-			&amp;lt;version&amp;gt;1.11.1&amp;lt;/version&amp;gt;
-		&amp;lt;/dependency&amp;gt;
+			&amp;amp;lt;version&amp;amp;gt;3.3.1&amp;amp;lt;/version&amp;amp;gt;
+		&amp;amp;lt;/dependency&amp;amp;gt;
+		&amp;amp;lt;dependency&amp;amp;gt;
+			&amp;amp;lt;groupId&amp;amp;gt;org.webjars&amp;amp;lt;/groupId&amp;amp;gt;
+			&amp;amp;lt;artifactId&amp;amp;gt;angularjs&amp;amp;lt;/artifactId&amp;amp;gt;
+			&amp;amp;lt;version&amp;amp;gt;1.3.8&amp;amp;lt;/version&amp;amp;gt;
+		&amp;amp;lt;/dependency&amp;amp;gt;
+		&amp;amp;lt;dependency&amp;amp;gt;
+			&amp;amp;lt;groupId&amp;amp;gt;org.webjars&amp;amp;lt;/groupId&amp;amp;gt;
+			&amp;amp;lt;artifactId&amp;amp;gt;jquery&amp;amp;lt;/artifactId&amp;amp;gt;
+			&amp;amp;lt;version&amp;amp;gt;1.11.1&amp;amp;lt;/version&amp;amp;gt;
+		&amp;amp;lt;/dependency&amp;amp;gt;
 &amp;lt;/code&amp;gt;
 &amp;lt;/pre&amp;gt;
 </description>	  
     </item>
 
     <item>
-      <title>Saltstack: Up and Running</title>
+      <title>Saltstack: Up and Running pt1</title>
       <link>http://jbake.org/blog/2015/saltstack_up_and_running.html</link>
       <pubDate>Thu, 2 Apr 2015 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2015/saltstack_up_and_running.html</guid>
@@ -311,18 +320,17 @@ I will be using CentOS for this writeup.  I am also using two vagrant machines t
 &amp;lt;/p&amp;gt;
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
-	&amp;lt;code&amp;gt;
-		sudo yum install salt-master -y
-	&amp;lt;/code&amp;gt;
+&amp;lt;code&amp;gt;
+sudo yum install salt-master -y
+&amp;lt;/code&amp;gt;
 &amp;lt;/pre&amp;gt;
 
 &amp;lt;p&amp;gt;Once salt-maste is install, we&amp;#39;ll just quick setup some quick configurations.&amp;lt;/br&amp;gt;
-	&amp;lt;li&amp;gt;Change the hostname to saltmaster&amp;lt;/li&amp;gt;
-	&amp;lt;li&amp;gt;Navigate to /etc/salt/master&amp;lt;/li&amp;gt;
-	&amp;lt;li&amp;gt;Create salt &amp;amp; pillar directory in /srv - &amp;lt;i&amp;gt;sudo mkdir -p /srv/{salt,pillar}&amp;lt;/i&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Change the hostname to saltmaster&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Create salt &amp;amp; pillar directory in /srv - &amp;lt;i&amp;gt;sudo mkdir -p /srv/{salt,pillar}&amp;lt;/i&amp;gt;&amp;lt;/li&amp;gt;
 &amp;lt;/p&amp;gt;
 &amp;lt;p&amp;gt;You dont have to change anything in the master configuration file unless you want to change the default location for your states.  Which I typically do 
-	You can find a complete breakdown: &amp;lt;a href=&amp;quot;https://docs.saltstack.com/en/latest/ref/configuration/master.html&amp;quot;&amp;gt;&amp;lt;i&amp;gt;Here&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;
+You can find a complete breakdown: &amp;lt;a href=&amp;quot;https://docs.saltstack.com/en/latest/ref/configuration/master.html&amp;quot;&amp;gt;&amp;lt;i&amp;gt;Here&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt;
 &amp;lt;/p&amp;gt;
 
 &amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
@@ -342,16 +350,56 @@ file_roots
 &amp;lt;p&amp;gt;I should mention that saltstack to uses yaml searializtion for it&amp;#39;s configuration, make sure to stick to this format&amp;lt;/p&amp;gt;
 
 &amp;lt;p&amp;gt;
-	&amp;lt;h2&amp;gt;Modify the Salt Minion&amp;lt;/h2&amp;gt;
-	&amp;lt;p&amp;gt;Let&amp;#39;s modify the salt minion and connect it to the salt master.&amp;lt;/br&amp;gt;
-		&amp;lt;li&amp;gt;Rename the minions hostname&amp;lt;/li&amp;gt;
-		&amp;lt;li&amp;gt;Install saltstack&amp;lt;/li&amp;gt;
-		&amp;lt;li&amp;gt;Edit /etc/salt/minion&amp;lt;/li&amp;gt;
-	&amp;lt;/p&amp;gt;
+&amp;lt;h2&amp;gt;Modify the Salt Minion&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Let&amp;#39;s modify the salt minion and connect it to the salt master.&amp;lt;/br&amp;gt;
+&amp;lt;li&amp;gt;Rename the minions hostname(we&amp;#39;ll use salt_minion)&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Install saltstack&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Edit /etc/salt/minion&amp;lt;/li&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;sudo yum install salt-minion -y&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+	
+&amp;lt;li&amp;gt;Edit /etc/salt/minion&amp;lt;/li&amp;gt;
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;master: saltmaster or ip_address_of_master&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+&amp;lt;p&amp;gt;You could just put the ip_address_of_master or the hostname and edit the /etc/hosts file and hardcode the hostanme to the ipaddress.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Restart the minion, jump over to your saltmaster, let&amp;#39;s see if any minions tried to sync to our master
+&amp;lt;/p&amp;gt;
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+sudo salt-key -L
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+&amp;lt;p&amp;gt;Once you add the masters host ip and restart the minion, it will automatically try to connect to the master.  You will need to accept the minions key
+to be able to communicate with each other.	
 &amp;lt;/p&amp;gt;
 
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+sudo salt-key -A
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+&amp;lt;p&amp;gt;Accepting the minion&amp;#39;s key by typing in Y and now you will be able to execute commands, here are a few that are useful. 
+The first one will confirm if you can communicate with your minion.	
+&amp;lt;/p&amp;gt;
 
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+sudo salt &amp;#39;*&amp;#39; test.ping
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
 
+&amp;lt;p&amp;gt;You can issue commands directly to the minions, let install Vim.&amp;lt;/p&amp;gt;
+
+&amp;lt;pre class=&amp;quot;prettyprint&amp;quot;&amp;gt;
+&amp;lt;code&amp;gt;
+sudo salt &amp;#39;*&amp;#39; cmd.run &amp;#39;sudo yum install vim -y&amp;#39;
+&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;
+
+&amp;lt;p&amp;gt;How cools is that!  Next post will dicuss setting up your states.&amp;lt;/p&amp;gt;
 
 </description>	  
     </item>

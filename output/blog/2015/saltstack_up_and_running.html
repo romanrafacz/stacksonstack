@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	    <meta charset="utf-8" />
-	    <title>Saltstack: Up and Running</title>
+	    <title>Saltstack: Up and Running pt1</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <meta name="description" content="" />
 	    <meta name="author" content="" />
@@ -69,7 +69,7 @@
 		<div class="container">
 	
 			<div class="page-header">
-				<h1>Saltstack: Up and Running</h1>
+				<h1>Saltstack: Up and Running pt1</h1>
 			</div>
 		
 			<p><em>02 April 2015</em></p>
@@ -95,18 +95,17 @@ I will be using CentOS for this writeup.  I am also using two vagrant machines t
 </p>
 
 <pre class="prettyprint">
-	<code>
-		sudo yum install salt-master -y
-	</code>
+<code>
+sudo yum install salt-master -y
+</code>
 </pre>
 
 <p>Once salt-maste is install, we'll just quick setup some quick configurations.</br>
-	<li>Change the hostname to saltmaster</li>
-	<li>Navigate to /etc/salt/master</li>
-	<li>Create salt & pillar directory in /srv - <i>sudo mkdir -p /srv/{salt,pillar}</i></li>
+<li>Change the hostname to saltmaster</li>
+<li>Create salt & pillar directory in /srv - <i>sudo mkdir -p /srv/{salt,pillar}</i></li>
 </p>
 <p>You dont have to change anything in the master configuration file unless you want to change the default location for your states.  Which I typically do 
-	You can find a complete breakdown: <a href="https://docs.saltstack.com/en/latest/ref/configuration/master.html"><i>Here</i></a>
+You can find a complete breakdown: <a href="https://docs.saltstack.com/en/latest/ref/configuration/master.html"><i>Here</i></a>
 </p>
 
 <pre class="prettyprint">
@@ -126,16 +125,56 @@ file_roots
 <p>I should mention that saltstack to uses yaml searializtion for it's configuration, make sure to stick to this format</p>
 
 <p>
-	<h2>Modify the Salt Minion</h2>
-	<p>Let's modify the salt minion and connect it to the salt master.</br>
-		<li>Rename the minions hostname</li>
-		<li>Install saltstack</li>
-		<li>Edit /etc/salt/minion</li>
-	</p>
+<h2>Modify the Salt Minion</h2>
+<p>Let's modify the salt minion and connect it to the salt master.</br>
+<li>Rename the minions hostname(we'll use salt_minion)</li>
+<li>Install saltstack</li>
+<li>Edit /etc/salt/minion</li>
+</p>
+<pre class="prettyprint">
+<code>sudo yum install salt-minion -y</code>
+</pre>
+	
+<li>Edit /etc/salt/minion</li>
+<pre class="prettyprint">
+<code>master: saltmaster or ip_address_of_master</code>
+</pre>
+<p>You could just put the ip_address_of_master or the hostname and edit the /etc/hosts file and hardcode the hostanme to the ipaddress.</p>
+<p>Restart the minion, jump over to your saltmaster, let's see if any minions tried to sync to our master
+</p>
+<pre class="prettyprint">
+<code>
+sudo salt-key -L
+</code>
+</pre>
+<p>Once you add the masters host ip and restart the minion, it will automatically try to connect to the master.  You will need to accept the minions key
+to be able to communicate with each other.	
 </p>
 
+<pre class="prettyprint">
+<code>
+sudo salt-key -A
+</code>
+</pre>
+<p>Accepting the minion's key by typing in Y and now you will be able to execute commands, here are a few that are useful. 
+The first one will confirm if you can communicate with your minion.	
+</p>
 
+<pre class="prettyprint">
+<code>
+sudo salt '*' test.ping
+</code>
+</pre>
 
+<p>You can issue commands directly to the minions, let install Vim.</p>
+
+<pre class="prettyprint">
+<code>
+sudo salt '*' cmd.run 'sudo yum install vim -y'
+</code>
+</pre>
+
+<p>How cools is that!  Next post will dicuss setting up your states.</p>
 
 </p>
 		
