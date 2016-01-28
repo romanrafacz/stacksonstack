@@ -104,5 +104,12 @@ sudo salt '*' cmd.run 'sudo yum install vim -y'
 </code>
 </pre>
 
-<p>How cools is that!  Next post will dicuss setting up your states.</p>
+<p>How cools is that!  You now have a saltmaster that can control your infrastructure. Next post will dicuss setting up your states.</p>
 
+<p>Bonus points: add the saltmasters .pub key to your minion configuration file in master_finger before key acceptance.  This will ensure you are connecting to the right server.</p>
+sudo salt-key -F master
+Local Keys:
+master.pem:  e5:95:a8:88:8e:04:6a:93:51:e8:e0:18:26:1a:00:e4
+master.pub:  65:86:de:a9:26:cb:07:24:bc:d4:c2:21:9b:ad:38:89
+Accepted Keys:
+salt_minion:  18:87:aa:21:af:4f:62:f3:59:83:66:17:75:54:5e:6b
