@@ -1,3 +1,3 @@
 # stacksonstack
 
-Learning site built with jbake
+Blog site built with jbake
