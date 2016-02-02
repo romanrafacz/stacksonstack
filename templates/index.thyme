@@ -33,13 +33,6 @@
 			
 
 			<div class="col-md-3 sidebar">
-				<div class="row sidebar-block">
-				<p>
-				<img class="img-responsive center-block" title="Roman Rafacz" alt="Roman Rafacz" src="" />
-				</p>
-				<p>Roman is a System Administrator living in Chicago, blah blah bla, adjust</p>
-				</div>
-				<div class="row sidebar-block">
 				<h3>Recent posts</h3>
 				</div>
 			</div>
