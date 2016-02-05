@@ -1,4 +1,4 @@
-= Postgres Backup & Recovery
+= Postgres Backup and Recovery
 Jonathan Bullock
 2013-10-17
 :jbake-type: post

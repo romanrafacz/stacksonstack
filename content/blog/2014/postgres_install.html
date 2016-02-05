@@ -1,0 +1,52 @@
+title=Postgres Instal
+date=2015-10-25
+type=post
+tags=blog, postgres
+status=published
+~~~~~~
+
+<p>Let's install postgresql on CentOS 64bit.</p>
+
+<p>First thing we need to do is install the repo so we can use the yum pagage manager.<br>
+We're going to install postgresql94, go ahead and issue the following commands. &lt;
+</p>
+
+<pre class="prettyprint">
+<code>
+rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+</code>
+</pre>
+<pre class="prettyprint">
+<code>
+sudo yum install postgresql94 postgresql94-jdbc postgresql94-plpython postgresql94-devel
+</code>
+</pre>
+<p>
+Once you install postgres, you need to init the database.  If you just try to start the database, you'll get the error message below.
+</p>
+
+<pre class="prettyprint">
+<code>
+service postgresql-9.4 start
+
+/var/lib/pgsql/9.4/data is missing. Use "service postgresql-9.4 initdb" to initialize the cluster first.
+                                                           [FAILED]
+</code>
+</pre>
+<p>Switch to root and issue<i>service postgresql-9.4 initdb</i>, you can then start posgresql-9.4 .  Then swith to  postgres and issues the psql command.
+You can then create a user for your database.</p>
+
+<pre class="prettyprint">
+<code>
+create user pgadmin with password '******';
+</code>
+</pre>
+
+<pre class="prettyprint">
+<code>
+alter user pgadmin superuser;
+</code>
+</pre>
+<p></p>
+
+
