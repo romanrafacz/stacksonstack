@@ -22,3 +22,151 @@ yum install libgcc_*
 	echo 'export JAVA_HOME=/usr/bin' >> ~/.bashrc 
 </code>
 </pre>
+
+<p>
+<h2>Jboss 7.1.1 Application</h2>
+
+Assume that, the Jboss installation path will be  /usr/share/ change the directory, download jboss-as-7.1.1.Final.zip
+</p>
+<pre class="prettyprint">
+<code>
+cd /usr/share
+
+wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip  
+ </code>
+</pre>
+
+<p>Extract that files and rename that file</p>
+ 
+<pre class="prettyprint">
+<code>
+unzip -q jboss-as-7.1.1.Final.zip  
+
+mv jboss-as-7.1.1.Final /usr/share/jboss-as  
+</code>
+</pre>
+
+<p>User Add :
+
+Create a user jboss
+</p>
+<pre class="prettyprint">
+<code>
+groupadd jboss  
+
+useradd -s /bin/bash -g jboss jboss
+</code>
+</pre>
+
+<p>Change the directory to our JBOSS HOME path ,</p>
+<pre class="prettyprint">
+<code>
+cd /usr/share/jboss-as
+
+pwd
+/usr/share/jboss-as
+</code>
+</pre>
+
+<p>Our JBOSS_HOME is '/usr/share/jboss-as'
+
+Change to the /usr/share directory:
+</p>
+<pre class="prettyprint">
+<code>
+cd /usr/share  
+
+chown -Rf jboss.jboss /usr/share/jboss-as/  
+</code>
+</pre>
+<p>
+Add the following to the .bash_profile of the user jboss,
+</p>
+<pre class="prettyprint">
+<code>
+set ‘JAVA_HOME’ path and add the lines below to your ‘.bash_profile’ file
+
+echo 'JAVA_HOME=/usr/java/jdk1.7.0_60' >> ~/.bash_profile
+
+echo 'export JAVA_HOME' >> ~/.bash_profile  
+
+echo 'PATH=$JAVA_HOME/bin:$PATH' >> ~/.bash_profile
+
+echo 'export PATH' >> ~/.bash_profile
+su - jboss  
+</code>
+</pre>
+<p>
+Create a start/stop/restart script for JBoss.
+</p>
+<pre class="prettyprint">
+<code>
+cd /usr/share/jboss-as/bin/init.d  
+
+cp jboss-as-standalone.sh /etc/init.d/jboss     
+
+cd /etc/init.d/
+</code>
+</pre> 
+
+<p>Give executable permission</p>
+<pre class="prettyprint">
+<code>
+chmod 755 jboss  
+
+chkconfig --add jboss  
+
+chkconfig --level 234 jboss on  
+</code>
+</pre>
+<p>Now start the jboss</p>
+ 
+<pre class="prettyprint">
+<code>
+/etc/init.d/jboss start
+Starting jboss-as:                                         [  OK  ]
+netstat -anp | grep 8080
+tcp        0      0 127.0.0.1:8080        0.0.0.0:*                   LISTEN      12710/java
+
+/etc/init.d/jboss stop
+*** JBossAS process (12710) received KILL signal ***
+</code>
+</pre>
+<p>
+Change the IP Address,
+
+Open the configuration file standalone.xml under /usr/share/jboss-as/standalone/configuration/. and update IP Address
+</p>
+<pre class="prettyprint">
+<code>
+ &lt;interfaces&gt;
+        &lt;interface name="management"&gt;
+            &lt;inet-address value="${jboss.bind.address.management:127.0.0.1}"/&gt;
+
+        &lt;/interface&gt;
+
+        &lt;interface name="public"&gt;
+
+            &lt;inet-address value="${jboss.bind.address:192.168.11.1}"/&gt;
+
+        &lt;/interface&gt;
+
+        &lt;!-- TODO - only show this if the jacorb subsystem is added  --&gt;
+
+        &lt;interface name="unsecure"&gt;
+
+            &lt;!--
+
+              ~  Used for IIOP sockets in the standard configuration.
+
+              ~                  To secure JacORB you need to setup SSL 
+
+              --&gt;
+
+            &lt;inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/&gt;
+        &lt;/interface&gt;
+&lt;/interfaces&gt;
+</code>
+</pre>
+
+<p>This will get you started for now, we will dig deeper in the next series</p>

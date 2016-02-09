@@ -179,7 +179,7 @@ a <b>user.html</b> file.
 
 <pre class="prettyprint">
 <code>
-	&lt;!DOCTYPE html>
+&lt;!DOCTYPE html>
 &lt;html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 &lt;div th:replace="fragments/header :: header">
@@ -189,7 +189,6 @@ a <b>user.html</b> file.
 
 	&lt;div th:replace="fragments/menu :: menu">
 	&lt;/div>
-
 	&lt;div class="container">
 		&lt;table class="table">
 			&lt;thead>
@@ -216,18 +215,17 @@ a <b>user.html</b> file.
 				&lt;/tr>				
 			&lt;/tbody>
 		&lt;/table>
-	
 	&lt;/div>
 
 &lt;/body>
-
 &lt;/html>
 </code>
 </pre>
 
 <p>You'll notice I've uses webjars to reference bootstart(as well as angular and jqeury).
 WebJars allow you to manage frontend assets and include them in your project as Java Archive (JAR) Maven dependencies so you dont have to manually update them later
-This is what I have added to my maven pom.xml file.
+This is what I have added to my maven pom.xml file.</br>
+Also, I am using thymeleaf's fragment to keep portions of my html seperate.  If you're not familiar with fragments, you can look <a href="http://www.thymeleaf.org/doc/articles/layouts.html">here.</a>
 </p>
 
 <pre class="prettyprint">
@@ -249,3 +247,5 @@ This is what I have added to my maven pom.xml file.
 &lt;/dependency&gt;
 </code>
 </pre>
+
+<p>This will give us a working working application that allows us to view a list, you can find the source files here at github.</p>
