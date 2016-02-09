@@ -1,16 +1,22 @@
 title=Springboot
-date=2016-17-1
+date=2016-01-16
 type=post
 tags=blog, java
 status=published
 ~~~~~~
-<p>Springboot is a great tool if you're looking to develop quickly and efficiently.  It does all the heavy lifting of wiring all your beans and configuration together so you can just focus on coding</p>
+<p>Springboot is a Java Framework if you're looking to develop quickly and efficiently.  It does all the heavy lifting of wiring all your beans and configuration together so you can just focus on coding.  
+Coupled with Maven and it coding in Java relatively painless.  Be sure to add Dev Tools to your build!  This will refresh changes on the fly so you dont have to reload the application after fixes.</br>
+	<li>Create a simple project with spring.io</li>
+	<li>Add a Controller to route incoming requests</li>
+	<li>Create a domain object to have a working model</li>
+	<li>Add a template with bootstrap for visuals</li>
+</p>
 
-<p>Setup a basic project with springboot. We'll work in eclipse and a maven build.  
-The easiest way is the head over to <a href="http://start.spring.io/">http://start.spring.io</a> .  Spring initializer will allow us to 
+<p>
+To setup a basic project, the easiest way is the head over to <a href="http://start.spring.io/">http://start.spring.io.</a> Spring initializer will allow us to 
 create a basic project that we can import into eclipse.  
 Make sure to select the latest java version along with the build type, for this example we'll use Maven.  
-Also, select the necessary packages, in this case add the following dependencies Web , Thymeleaf, JPA, & Postgres</p>
+Also, select the necessary packages, in this case add the following dependencies Web, Thymeleaf, JPA, Dev Tools & Postgres</p>
 
 <!-- <img th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="@{${rootpath}+'images/spring_initializer_img.png}" /> -->
 <img ="images/spring_initializer_img.png" />
@@ -44,7 +50,6 @@ public class SuperusersApplication {
 
 <pre class="prettyprint">
 <code>
-
 package com.users.controller;
 
 import org.springframework.stereotype.Controller;
@@ -139,7 +144,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.users.domain.User;
 
-public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+public interface UserRepository extends JpaRepository&lt;User&gt;, Integer {
 
 }
 
@@ -156,9 +161,11 @@ Eventually, you will want to place file on your system vs hardcoding these varia
 <code>
 spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://192.168.100.1:5432/spring
-spring.datasource.username=roman
-spring.datasource.password=snickers
+spring.datasource.username=pg_user
+spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+#Helpful for development.
+spring.jpa.show-sql=true
 </code>
 </pre>
 

@@ -1,6 +1,6 @@
 = Postgres Backup and Recovery
-Jonathan Bullock
-2013-10-17
+Roman Rafacz
+2015-12-17
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: blog, postgres
