@@ -6,7 +6,7 @@ Roman Rafacz
 :jbake-tags: blog, postgres
 :idprefix:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel diam purus. Curabitur ut nisi lacus.
+This post will focus on backing up and restoring your postgresl databases.
 
 * http://example.org
 * http://example.org[Example.org]
