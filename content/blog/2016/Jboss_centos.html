@@ -1,0 +1,24 @@
+title=Jboss on CentOS
+date=2016-12-1
+type=post
+tags=blog, java, devops
+status=published
+~~~~~~
+<p>This post is going to dicuss the installation process of JBoss on CentOS, you want to start by making sure you have Java 8 installed.</br>
+Make sure the following to libraries are installed as well.</p>
+
+<pre class="prettyprint">
+<code>
+yum install glibc.i686
+
+yum install libgcc_*
+</code>
+</pre>
+
+<p>lets makes sure our JAVA_HOME path is set, issue <i>which java</i> to determine where.</p>
+
+<pre class="prettyprint">
+<code>
+	echo 'export JAVA_HOME=/usr/bin' >> ~/.bashrc 
+</code>
+</pre>

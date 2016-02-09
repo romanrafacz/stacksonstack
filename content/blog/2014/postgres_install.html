@@ -1,4 +1,4 @@
-title=Postgres Instal
+title=Postgres Installation
 date=2015-10-25
 type=post
 tags=blog, postgres
@@ -47,6 +47,8 @@ create user pgadmin with password '******';
 alter user pgadmin superuser;
 </code>
 </pre>
-<p></p>
+<p>Since this is just for testing, I will just grant superuser role here. </br>
+<i>Tip: It is good practice to create a role that has the CREATEDB and CREATEROLE privileges, but is not a superuser, and then use this role for all routine management of databases and roles. 
+This approach avoids the dangers of operating as a superuser for tasks that do not really require it.</i></p>
 
 
