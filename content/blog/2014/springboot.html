@@ -179,49 +179,49 @@ a <b>user.html</b> file.
 
 <pre class="prettyprint">
 <code>
-	<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	&lt;!DOCTYPE html>
+&lt;html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div th:replace="fragments/header :: header">
-</div>
+&lt;div th:replace="fragments/header :: header">
+&lt;/div>
 
-<body>
+&lt;body>
 
-	<div th:replace="fragments/menu :: menu">
-	</div>
+	&lt;div th:replace="fragments/menu :: menu">
+	&lt;/div>
 
-	<div class="container">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Hero Name</th>
-					<th>Real Name</th>
-					<th>Good</th>
-					<th>Edit</th>
-					<th>Delete</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="hero, status : ${superheroes}">
-					<td th:text="${status.count}">1</td>
-					<td th:text="${hero.name}">Hero Name</td>
-					<td data-th-text="${hero.lastName}"></td>
-					<td>
-						<span class="glyphicon glyphicon-ok" th:if="${hero.good}"></span>
-						<span class="glyphicon glyphicon-remove" th:unless="${hero.good}"></span>
-					</td>
-					<td><a th:href="@{'/heroes/{id}/edit'(id=${hero.id})}" class="edit" ><span class="fa-stack"><i class="glyphicon glyphicon-edit"></i></span></a></td>
-					<td><a th:href="@{'/heroes/{id}/delete'(id=${hero.id})}" class="delete" th:attr="name=${hero.name}"><span class="fa-stack"><i class="glyphicon glyphicon-trash"></i></span></a></td>					
-				</tr>				
-			</tbody>
-		</table>
+	&lt;div class="container">
+		&lt;table class="table">
+			&lt;thead>
+				&lt;tr>
+					&lt;th>#&lt;/th>
+					&lt;th>Hero Name&lt;/th>
+					&lt;th>Real Name&lt;/th>
+					&lt;th>Good&lt;/th>
+					&lt;th>Edit&lt;/th>
+					&lt;th>Delete&lt;/th>
+				&lt;/tr>
+			&lt;/thead>
+			&lt;tbody>
+				&lt;tr th:each="hero, status : ${superheroes}">
+					&lt;td th:text="${status.count}">1&lt;/td>
+					&lt;td th:text="${hero.name}">Hero Name&lt;/td>
+					&lt;td data-th-text="${hero.lastName}">&lt;/td>
+					&lt;td>
+						&lt;span class="glyphicon glyphicon-ok" th:if="${hero.good}">&lt;/span>
+						&lt;span class="glyphicon glyphicon-remove" th:unless="${hero.good}">&lt;/span>
+					&lt;/td>
+					&lt;td>&lt;a th:href="@{'/heroes/{id}/edit'(id=${hero.id})}" class="edit" >&lt;span class="fa-stack">&lt;i class="glyphicon glyphicon-edit">&lt;/i>&lt;/span>&lt;/a>&lt;/td>
+					&lt;td>&lt;a th:href="@{'/heroes/{id}/delete'(id=${hero.id})}" class="delete" th:attr="name=${hero.name}">&lt;span class="fa-stack">&lt;i class="glyphicon glyphicon-trash">&lt;/i>&lt;/span>&lt;/a>&lt;/td>					
+				&lt;/tr>				
+			&lt;/tbody>
+		&lt;/table>
 	
-	</div>
+	&lt;/div>
 
-</body>
+&lt;/body>
 
-</html>
+&lt;/html>
 </code>
 </pre>
 
