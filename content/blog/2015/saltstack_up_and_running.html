@@ -1,5 +1,5 @@
 title=Saltstack: Up and Running Pt1
-date=2016-02-01
+date=2016-01-01
 type=post
 tags=blog, devops
 status=published
@@ -8,14 +8,20 @@ status=published
 <p>
 Th goal of this post is to have a working example of saltstack, a mighty fine configuration management tool written in python.</p>
 <p>
-We're going to setup a master server and a slave(minion) which we will be able to push all our states to.  <i>State</i> with the extention .sls is how
-we are able to define what we went to exactly went want to happen to our minion.  We will define a user state that will define user profiles
-across 1 server or 1000.
+We're going to setup a master server and a slave(minion) which will allow us to control all configuration on a remote server.  The <i>State</i> (with the extention .sls) is how
+we are able to define what exactly we want to happen to our minion.  We will define a user states that will define profiles and configuration
+across a single server or 1000 servers.
 </p>
 <p>
-Saltstack also provides us with a really neat remote ssh execution tool which makes pushing out code to remote minions as.  I.E, you can just update 1 package
-to a host of machines with one command.  We'll also commit our states to a Git repo so we can continue building out our states.
+Saltstack also provides us with a really neat remote execution tool which makes pushing out code to minions a breeze.  For example, you can just update 1 package
+to a host of machines with one command.  The code below will update openssh-server accross all our minions.  We'll also commit our states to a Git repo so we can continue building out our states.
 </p>
+
+<pre class="prettyprint">
+<code>
+salt '*' cmd.run 'yum update openssh-server'
+</code>
+</pre>
 
 <p>
 First thing you want to do is make sure you have salt-master installed on one of your system.  This is as easy as using the package manager on your

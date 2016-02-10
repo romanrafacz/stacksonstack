@@ -1,0 +1,55 @@
+title=Nginx and Gunicorn
+date=2015-10-24
+type=post
+tags=blog, devops
+status=published
+~~~~~~
+
+<p>Quick setup on how to have Nginx server Gunicorn applications.</p>
+
+<p>Edit /etc/nginx/sites-available/gunicorn.conf and add the following.</p>
+
+
+<pre class="prettyprint">
+<code>
+upstream forwards {
+#port you want the application to listen to
+listen 127.0.0.1:8000;
+}
+
+server {
+listen 80;
+server_name localhost;
+access_log /home/roman/flask/blog/log/access.log;
+error_log /home/roman/flask/blog/log/error.log;
+
+location / {
+proxy_pass_header Server;
+proxy_set_header Host $http_host;
+proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+proxy_redirect	off;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Scheme $scheme;
+}
+}
+</code>
+</pre>
+<p>
+Install Gunicorn
+
+pip install gunicorn
+
+Modify your app to include following code.
+</p>
+
+<pre class="prettyprint">
+<code>
+from werkzeug.contrib.fixers import ProxyFixer
+
+app = Flask(..) - Flask object
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
+
+app.run()
+</code>
+</pre>

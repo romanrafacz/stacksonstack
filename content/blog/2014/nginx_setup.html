@@ -1,6 +1,93 @@
 title=Nginx Setup
-date=2014-11-21
+date=2015-10-21
 type=post
 tags=blog, devops 
 status=published
 ~~~~~~
+
+<p>Documentation on hot to quickly setup Nginx, Install process on CentOS
+</p>
+
+<pre class="prettyprint">
+<code>
+sudo yum install httpd
+
+sudo yum install nginx
+</code>
+</pre>
+
+
+<p>Start Nginx</p>
+
+<pre class="prettyprint">
+<code>
+systemctl start nginx
+</code>
+</pre>
+
+<p>Firewall configuragion, you may need to adjust iptables and open necessary ports</p>
+
+<pre class="prettyprint">
+<code>
+iptables ­L – List current firewall settings
+
+iptables ­A -INPUT ­-p tcp -m tcp --dport 80 -j ACCEPT
+iptables ­A -INPUT ­-p tcp -m tcp --dport 443 -j ACCEPT
+
+iptables save/restart
+</code>
+</pre>
+<p>
+Navigate to /etc/nginx and create two directories. Sites­available & sites­enabled. Create a file in
+
+sites­available, we'll call this virtual.conf and add the following code.
+
+Nginx – Add Static Site
+</p>
+
+<pre class="prettyprint">
+<code>
+server {
+
+listen 80;
+
+server_name www.mysite.com;
+
+access_log on;
+
+access_log /var/log/nginx/mysite/access_log;
+
+error_log /var/log/nginx/mysite/access_log;
+
+location / {
+
+root /var/www/mystie.com/puplic/;
+
+index index.html;
+
+}
+
+}
+</code>
+</pre>
+
+<p>
+Then, create a in sites­enabled to virtual.conf in sites­available.
+
+ln ­s virtual.conf /etc/nginx/site­available/virtual.conf
+</p>
+
+<p>Restart webserver</p>
+<pre class="prettyprint">
+<code>
+service nginx restart or /etc/init.d/httpd restart
+</code>
+</pre>
+
+
+<p>
+Add SSL to your Webservers
+</p>
+Apache
+
+
