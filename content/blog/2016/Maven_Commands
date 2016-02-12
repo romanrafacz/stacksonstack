@@ -1,0 +1,13 @@
+title=Springboot
+date=2016-01-16
+type=post
+tags=blog, java
+status=
+~~~~~~
+
+mvn clean package
+
+mvn compiler:compile
+When you get weird meta errors or you change your entity beans
+
+jar -jar target/project_snapshot.jar
