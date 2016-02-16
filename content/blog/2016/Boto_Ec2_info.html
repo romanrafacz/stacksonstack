@@ -1,0 +1,34 @@
+title=Boto and your EC2 info
+date=2016-02-12
+type=post
+tags=blog, devops
+status=published
+~~~~~~
+<p>
+<h1>Using Boto for EC2 instances</h1>
+Python has a really neat library that allows you to grab all details of your E2 instances.  Furthermore you can get the details you want based on specific search patterns
+</p>
+
+<p>Here's a script that will give you the ip address's based on image_id.</p>
+
+<pre class="prettyprint">
+<code>
+import os
+import boto
+from boto import ec2
+
+AWS_ACCESS_KEY_ID = os.enviorn['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.enviorn['AWS_SECRET_ACCESS_KEY']
+
+ec2conn = ec2.connection.EC2Connection(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+
+reservations = ec2conn.get_all_instances()
+instances = [i for r in reservations for i in r.instances]
+
+for i in instances:
+	if (i.image_id == 'ami-xxxxxxx'):
+		print i.ip_address
+</code>
+</pre>
+
+<p>This will return the public ip address's, next we'll send out an email to who we specify via input.</p>
